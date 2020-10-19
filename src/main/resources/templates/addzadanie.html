@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Dodaj zadanie</h1>
+
+<form role="form" th:object="${ZadanieEntity}" th:action="@{/addzadanie}" method="post">
+
+<!--    <div>-->
+<!--        <input type="text" name="ukonczone" id="ukonczone" placeholder="Ukonczone" />-->
+<!--    </div>-->
+
+    <div>
+        <input type="text" name="opis" id="opis" placeholder="Opis zadania" />
+    </div>
+
+    <input type="submit" value="Zapisz" />
+
+</form>
+</body>
+</html>
