@@ -40,5 +40,12 @@ public class ZadanieController<ZadaniaDto> {
         //return "testz controllera "+cos;
         return "test";
     }
+    @RequestMapping(value = "/addzadanie", method = RequestMethod.GET)
+    public String createQuiz(Model model) {
+
+        model.addAttribute("zadanie", new ZadanieDto());
+
+        return "/addzadanie";
+    }
 }
 
