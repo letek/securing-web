@@ -19,8 +19,10 @@ public class ZadanieEntity {
 
     @Temporal(TemporalType.DATE)
     private Date dataUtworzenia;
+
     @Temporal(TemporalType.DATE)
     private Date dataZamkniecia;
+
     private boolean ukonczone;
 
     //Gettery Settery

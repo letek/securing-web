@@ -8,6 +8,8 @@ public class ZadanieDto {
     private String dataZamkniecia;
     private boolean ukonczone;
 
+
+    //kreatory
     public ZadanieDto() {
     }
 
@@ -24,6 +26,9 @@ public class ZadanieDto {
         this.dataZamkniecia = dataZamkniecia;
         this.ukonczone = ukonczone;
     }
+
+    //gettery settery
+
 
     public long getId() {
         return id;

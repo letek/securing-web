@@ -7,13 +7,13 @@
 </head>
 <body>
 <table>
-    <tr th:each="zadania : ${zadania}">
-        <td th:text="${zadania.id}" />
-        <td th:text="${zadania.opis}" />
-        <td th:text="${zadania.datautworzenia}" />
-        <td th:text="${zadania.datazamkniecia}" />
-        <td th:text="${zadania.ukonczone}" />
-    </tr>
+    <tr th:each="zadanieDto : ${zadanieList}">
+        <td th:text="${zadanieDto.id}" />
+        <td th:text="${zadanieDto.opis}" />
+        <td th:text="${zadanieDto.datautworzenia}" />
+        <td th:text="${zadanieDto.datazamkniecia}" />
+        <td th:text="${zadanieDto.ukonczone}" />
+     </tr>
 
 </table>
 </body>

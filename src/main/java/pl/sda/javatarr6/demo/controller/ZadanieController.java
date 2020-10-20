@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import pl.sda.javatarr6.demo.service.ZadanieService;
 
 import java.util.List;
@@ -18,6 +19,7 @@ public class ZadanieController<ZadanieDto> {
 
     @Autowired
     private ZadanieService zadanieService;
+
 
     //    @RequestMapping(value = "/main", method = RequestMethod.GET)
 //    //@ResponseBody
@@ -47,14 +49,16 @@ public class ZadanieController<ZadanieDto> {
     //@ResponseBody
     public String zadanieList(Model model) {
 
-        List<pl.sda.javatarr6.demo.dto.ZadanieDto> zadania = zadanieService.getAll();
+        List<pl.sda.javatarr6.demo.dto.ZadanieDto> zadania= zadanieService.getAll();
 
-        model.addAttribute("zadania", zadania);
+        model.addAttribute("zadanieList", zadania);
 
         return "zadanieList";
+    //    return model.toString();
     }
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
+    //@GetMapping("/hello")
     //@ResponseBody
     public String test() {
 
