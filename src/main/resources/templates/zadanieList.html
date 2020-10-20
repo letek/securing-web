@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr th:each="zadania : ${zadania}">
+        <td th:text="${zadania.id}" />
+        <td th:text="${zadania.opis}" />
+        <td th:text="${zadania.datautworzenia}" />
+        <td th:text="${zadania.datazamkniecia}" />
+        <td th:text="${zadania.ukonczone}" />
+    </tr>
+
+</table>
+</body>
+</html>

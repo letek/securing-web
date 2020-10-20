@@ -4,10 +4,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import pl.sda.javatarr6.demo.entity.ZadanieEntity;
 
-import java.util.List;
-
 @Repository
-public interface ZadaniaRepository extends CrudRepository<ZadanieEntity, Long> {
+public interface ZadanieRepository extends CrudRepository<ZadanieEntity, Long> {
+    ZadanieEntity getById(Long id);
     //List<Zadanie> getAllByDate(Date date);
 
 

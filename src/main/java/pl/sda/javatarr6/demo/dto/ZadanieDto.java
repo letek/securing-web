@@ -4,9 +4,9 @@ public class ZadanieDto {
 
     private long id;
     private String opis;
-//    private String dataUtworzenia;
-//    private String dataZamkniecia;
-//    private boolean ukonczone;
+    private String dataUtworzenia;
+    private String dataZamkniecia;
+    private boolean ukonczone;
 
     public ZadanieDto() {
     }
@@ -17,14 +17,13 @@ public class ZadanieDto {
         System.out.println("sout z Zadanie DTO");
     }
 
-//    public ZadanieDto(long id, String opis, String dataUtworzenia, String dataZamkniecia, boolean ukonczone) {
-//        this.id = id;
-//        this.opis = opis;
-//        this.dataUtworzenia = dataUtworzenia;
-//        this.dataZamkniecia = dataZamkniecia;
-//        this.ukonczone = ukonczone;
-//    }
-
+    public ZadanieDto(long id, String opis, String dataUtworzenia, String dataZamkniecia, boolean ukonczone) {
+        this.id = id;
+        this.opis = opis;
+        this.dataUtworzenia = dataUtworzenia;
+        this.dataZamkniecia = dataZamkniecia;
+        this.ukonczone = ukonczone;
+    }
 
     public long getId() {
         return id;
@@ -40,5 +39,29 @@ public class ZadanieDto {
 
     public void setOpis(String opis) {
         this.opis = opis;
+    }
+
+    public String getDataUtworzenia() {
+        return dataUtworzenia;
+    }
+
+    public void setDataUtworzenia(String dataUtworzenia) {
+        this.dataUtworzenia = dataUtworzenia;
+    }
+
+    public String getDataZamkniecia() {
+        return dataZamkniecia;
+    }
+
+    public void setDataZamkniecia(String dataZamkniecia) {
+        this.dataZamkniecia = dataZamkniecia;
+    }
+
+    public boolean isUkonczone() {
+        return ukonczone;
+    }
+
+    public void setUkonczone(boolean ukonczone) {
+        this.ukonczone = ukonczone;
     }
 }

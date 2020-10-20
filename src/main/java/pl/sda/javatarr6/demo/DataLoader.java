@@ -5,24 +5,28 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import pl.sda.javatarr6.demo.entity.ZadanieEntity;
-import pl.sda.javatarr6.demo.repository.ZadaniaRepository;
+import pl.sda.javatarr6.demo.repository.ZadanieRepository;
+
+import java.util.Date;
 
 @Component
 public class DataLoader implements ApplicationRunner {
 
 
     @Autowired
-    private ZadaniaRepository zadaniaRepository;
+    private ZadanieRepository zadanieRepository;
 
     @Override
     public void run(ApplicationArguments args) throws  Exception {
 
-        ZadanieEntity zadanieEntity = new ZadanieEntity("jnowak" );
-        zadaniaRepository.save(zadanieEntity);
-        ZadanieEntity zadanieEntity2 = new ZadanieEntity("jnowak2" );
-        zadaniaRepository.save(zadanieEntity2);
-        ZadanieEntity zadanieEntity3 = new ZadanieEntity("jkazikowski" );
-        zadaniaRepository.save(zadanieEntity3);
+        //Date data = ;
+        //Boolean aa = new Boolean(false);
+        ZadanieEntity zadanieEntity = new ZadanieEntity("jzadanie 1", new Date(), new Date(), new Boolean(false));
+        zadanieRepository.save(zadanieEntity);
+        ZadanieEntity zadanieEntity2 = new ZadanieEntity("ToDo cos tam" );
+        zadanieRepository.save(zadanieEntity2);
+        ZadanieEntity zadanieEntity3 = new ZadanieEntity("Lalala" );
+        zadanieRepository.save(zadanieEntity3);
 
 //        zadaniaRepository.save(user);
 //
