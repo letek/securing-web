@@ -8,11 +8,16 @@
 <body>
 <table>
     <tr th:each="zadania : ${zadania}">
-        <td th:text="${zadania.id}" />
-        <td th:text="${zadania.opis}" />
+        <td th:text="${zadania.id}"/>
+        <td th:text="${zadania.opis}"/>
+        <td th:text="${zadania.dataUtworzenia}"/>
+        <td th:text="${zadania.dataZamkniecia}"/>
+        <td th:text="${zadania.ukonczone}"></td>
 
     </tr>
 
 </table>
+<br><br>
+<a href="addzadanie">Dodaj Zadanie</a>
 </body>
 </html>

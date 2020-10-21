@@ -19,7 +19,17 @@ public class ZadanieDto {
         System.out.println("sout z Zadanie DTO");
     }
 
+    //public ZadanieDto(long id, String opis, String dataUtworzenia, String dataZamkniecia, boolean ukonczone) {
+    public ZadanieDto(String opis, String dataUtworzenia, String dataZamkniecia, boolean ukonczone) {
+        this.id = id;
+        this.opis = opis;
+        this.dataUtworzenia = dataUtworzenia;
+        this.dataZamkniecia = dataZamkniecia;
+        this.ukonczone = ukonczone;
+    }
+
     public ZadanieDto(long id, String opis, String dataUtworzenia, String dataZamkniecia, boolean ukonczone) {
+        //public ZadanieDto(String opis, String dataUtworzenia, String dataZamkniecia, boolean ukonczone) {
         this.id = id;
         this.opis = opis;
         this.dataUtworzenia = dataUtworzenia;
@@ -55,6 +65,7 @@ public class ZadanieDto {
     }
 
     public String getDataZamkniecia() {
+
         return dataZamkniecia;
     }
 
@@ -69,4 +80,5 @@ public class ZadanieDto {
     public void setUkonczone(boolean ukonczone) {
         this.ukonczone = ukonczone;
     }
+
 }

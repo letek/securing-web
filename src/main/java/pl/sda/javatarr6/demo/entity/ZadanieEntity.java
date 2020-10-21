@@ -79,10 +79,10 @@ public class ZadanieEntity {
         this.ukonczone = ukonczone;
     }
 
-    public ZadanieEntity(String opis) {
-
-        this.opis = opis;
-    }
+//    public ZadanieEntity(String opis) {
+//
+//        this.opis = opis;
+//    }
 
     public ZadanieEntity() {
     }

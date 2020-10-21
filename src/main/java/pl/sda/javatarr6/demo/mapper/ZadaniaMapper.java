@@ -17,17 +17,18 @@ import java.util.List;
 
 public class ZadaniaMapper {
 
-    private static final String DATE_FORMAT = "dd-MM-yyyy";
+    public static final String DATE_FORMAT = "dd-MM-yyyy";
 
     public static List<ZadanieDto> mapZadanieEntitiesToDto(Iterable<ZadanieEntity> entities) {
 
         List<ZadanieDto> result = new ArrayList<>();
 
         for (ZadanieEntity entity : entities) {
+            ZadanieDto dto = mapZadanieEntitiesToDto(entity);
 
             //ZadanieDto dto = new ZadanieDto(entity.getId(),entity.getOpis());
-            ZadanieDto dto = mapZadanieEntitiesToDto(entity);
             //System.out.println("Zadanie Mapper: "+entity.getOpis());
+
             result.add(dto);
         }
         //System.out.println("sout z Zadanie Mapper");
@@ -40,52 +41,25 @@ public class ZadaniaMapper {
         ZadanieDto dto = new ZadanieDto();
         dto.setId(entity.getId());
         dto.setOpis(entity.getOpis());
-//        String data = new Date().toString();
-//        dto.setDataUtworzenia(data);
-//        dto.setDataZamkniecia(data);
 
-//        Date dat = new Date();
-//        SimpleDateFormat data = new SimpleDateFormat(DATE_FORMAT);
-//        System.out.println(data);
+        //System.out.println("Zadnie Mapper + mapZadanieEntitiesToDto");
 
-        //String pattern = "MM-dd-yyyy";
-//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
-//        String date = simpleDateFormat.format(new Date());
-//        System.out.println(date);
+        dto.setDataUtworzenia(new SimpleDateFormat(DATE_FORMAT).format(entity.getDataUtworzenia()));
 
-//        System.out.println(simpleDateFormat.format(entity.getDataUtworzenia()));
-
-//        System.out.println(entity.getDataUtworzenia().toString());
-//        if (entity.getDataUtworzenia().toString() == "") {
-//            System.out.println("tak");
-//        } else System.out.println("nie");
-//
-//        System.out.println("");
-
-        dto.setDataUtworzenia(new SimpleDateFormat(DATE_FORMAT).format(new Date()));
-        dto.setDataZamkniecia(new SimpleDateFormat(DATE_FORMAT).format(new Date()));
-//        dto.setDataUtworzenia(new SimpleDateFormat(DATE_FORMAT).format(entity.getDataUtworzenia()));
-//        dto.setDataZamkniecia(new SimpleDateFormat(DATE_FORMAT).format(entity.getDataZamkniecia()));
-        dto.setUkonczone(entity.isUkonczone());
-        //dto.setDescription(entity.getDescription());
-        //dto.setCreateDate(new SimpleDateFormat(DATE_FORMAT).format(entity.getCreateDate()));
-
+        if (entity.getDataZamkniecia() != null) {
+            dto.setDataZamkniecia(new SimpleDateFormat(DATE_FORMAT).format(entity.getDataZamkniecia()));
+        }
         return dto;
     }
 
-    //przy dodawaniu?
+    //przy dodawaniu
     public static ZadanieEntity mapDtoToZadanieEntity(ZadanieDto dto) throws ParseException {
 
         ZadanieEntity entity = new ZadanieEntity();
-        entity.setId(dto.getId());
+        //entity.setId(dto.getId());
         entity.setOpis(dto.getOpis());
-        entity.setDataUtworzenia(new SimpleDateFormat(DATE_FORMAT).parse(dto.getDataUtworzenia()));
-        entity.setDataUtworzenia(new SimpleDateFormat(DATE_FORMAT).parse(dto.getDataZamkniecia()));
+        entity.setDataUtworzenia(new Date());
         entity.setUkonczone(dto.isUkonczone());
-
-        //entity.setDescription(dto.getDescription());
-        //entity.setCreateDate(new SimpleDateFormat(DATE_FORMAT).parse(dto.getCreateDate()));
-
         return entity;
     }
 }
