@@ -8,14 +8,31 @@
 <body>
 <table>
     <tr th:each="zadania : ${zadania}">
-        <td th:text="${zadania.id}" /><!-- odwołanie do zadania.getName() -->
-
-        <td th:text="${zadania.opis}" />
+        <td>
+            <input type="checkbox" value="" />
+            <input type="hidden" th:value="${zadania.id}" />
+        </td>
+<!--        <td><a th:href="@{/edit/{id}(id=${user.id})}">Edit</a></td>-->
+<!--        <td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>-->
+        <td th:text="${zadania.id}"/>
+        <td th:text="${zadania.opis}"/>
+        <td th:text="${zadania.dataUtworzenia}"/>
+        <td th:text="${zadania.dataZamkniecia}"/>
+        <td th:text="${zadania.ukonczone}"></td>
 
     </tr>
 
 </table>
 <br><br>
 <a href="addzadanie">Dodaj Zadanie</a>
+<br>
+<a href="zakoncz_zadanie">Zakończ Zadanie</a>
+<!-- Plugin JavaScript -->
+<!--<script src="webjars/jquery-easing/1.4.1/jquery.easing.min.js"></script>-->
+
+<!-- Custom JavaScript for this theme -->
+<!--<script src="js/scrolling-nav.js"></script>-->
+
+<!--<script src="js/zadanie.js"></script>-->
 </body>
 </html>

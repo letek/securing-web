@@ -5,13 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import pl.sda.javatarr6.demo.mapper.ZadaniaMapper;
 import pl.sda.javatarr6.demo.service.ZadanieService;
-//import pl.sda.javatarr6.demo.service.ZadaniaMapper;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,7 +21,6 @@ public class ZadanieController<ZadanieDto> {
     @Autowired
     private ZadanieService zadanieService;
 
-
     @RequestMapping(value = "/main", method = RequestMethod.GET)
 
     public String main(Model model) {
@@ -37,6 +32,16 @@ public class ZadanieController<ZadanieDto> {
         return "main";
     }
 
+    @RequestMapping(value = "/main2", method = RequestMethod.GET)
+
+    public String main2(Model model) {
+
+        List<pl.sda.javatarr6.demo.dto.ZadanieDto> zadania = zadanieService.getAll();
+
+        model.addAttribute("zadania", zadania);
+
+        return "main2";
+    }
 
     @RequestMapping(value = "/zadanieList", method = RequestMethod.GET)
     @ResponseBody
@@ -80,7 +85,6 @@ public class ZadanieController<ZadanieDto> {
 
         //  zadanieDto.setOpis();
         zadanieDto.setDataUtworzenia(new SimpleDateFormat(ZadaniaMapper.DATE_FORMAT).format(new Date()));
-        //boolean aa = false;
         zadanieDto.setUkonczone(new Boolean(false) );
         zadanieService.save(zadanieDto);
 

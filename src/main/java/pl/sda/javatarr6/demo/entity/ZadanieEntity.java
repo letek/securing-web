@@ -15,6 +15,7 @@ public class ZadanieEntity {
     private long id;
 
     @Column(nullable = false)
+    //@NotBlank(message = "Name is mandatory")
     private String opis;
 
     @Temporal(TemporalType.DATE)
@@ -85,6 +86,10 @@ public class ZadanieEntity {
 //    }
 
     public ZadanieEntity() {
+    }
+
+    public ZadanieEntity(long id) {
+        this.id = id;
     }
 }
 
