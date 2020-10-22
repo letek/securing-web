@@ -16,8 +16,8 @@ public class ZadanieRESTController {
     @DeleteMapping("/api/zadanie/{id}")
     public Long deleteZadanie(@PathVariable Long id) {
         // TODO: usunięcie elementu z bazy
-        ZadanieService zadanieService1 = new ZadanieService();
-        zadanieService1.finishzadanieEntity(id);
+        //ZadanieService zadanieService1 = new ZadanieService();
+       zadanieService.finishzadanieEntity(id);
         return id;
 
     }

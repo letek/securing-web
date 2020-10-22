@@ -49,6 +49,7 @@ public class ZadaniaMapper {
         if (entity.getDataZamkniecia() != null) {
             dto.setDataZamkniecia(new SimpleDateFormat(DATE_FORMAT).format(entity.getDataZamkniecia()));
         }
+        dto.setUkonczone(entity.isUkonczone());
         return dto;
     }
 

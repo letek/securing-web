@@ -56,24 +56,15 @@ public class ZadanieService {
 
             System.out.println("weszlo w id <> null");
             System.out.println("id = " + id.toString());
-
-            //System.out.println(zadanieRepository.getById(id));
-
             ZadanieEntity entity = zadanieRepository.getById(id);//ta linijka robi problem
-            //System.out.println("Po zadanieRepository.getById(id)");
-
-            //System.out.println(entity);
-            //System.out.println("222222222222222222");
-            //ZadanieEntity entity = zadanieRepository.getById(id);
 
             if (entity != null) {
                 System.out.println("weszlo w entity <> null");
                 System.out.println(entity);
+
                 entity.setUkonczone(true);
+                entity.setDataZamkniecia(new Date());
                 zadanieRepository.save(entity);
-//                zadanieDto.setDataUtworzenia(new SimpleDateFormat(ZadaniaMapper.DATE_FORMAT).format(new Date()));
-//                zadanieDto.setUkonczone(new Boolean(false) );
-                //zadanieService.save(zadanieDto);
             }
 
         } else System.out.println("Nie podano ID");
