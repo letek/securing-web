@@ -54,18 +54,17 @@ public class ZadanieService {
 
         if (id != null) {
 
-            System.out.println("weszlo w id <> null");
-            System.out.println("id = " + id.toString());
-            ZadanieEntity entity = zadanieRepository.getById(id);//ta linijka robi problem
+//            System.out.println("weszlo w id <> null");
+//            System.out.println("id = " + id.toString());
+            ZadanieEntity entity = zadanieRepository.getById(id);
 
-            if (entity != null) {
-                System.out.println("weszlo w entity <> null");
-                System.out.println(entity);
-
+//            if (entity != null) {
+//                System.out.println("weszlo w entity <> null");
+//                System.out.println(entity);
                 entity.setUkonczone(true);
                 entity.setDataZamkniecia(new Date());
                 zadanieRepository.save(entity);
-            }
+  //          }
 
         } else System.out.println("Nie podano ID");
 

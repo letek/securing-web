@@ -21,37 +21,37 @@ public class ZadanieController<ZadanieDto> {
     @Autowired
     private ZadanieService zadanieService;
 
+    @RequestMapping("/delzadanie")
+    public String postZadanie(@RequestParam Long id) {
+        zadanieService.finishzadanieEntity(id);
+        return "redirect:/listzadanie";
+        //return id;
+    }
+
     @RequestMapping(value = "/main", method = RequestMethod.GET)
 
     public String main(Model model) {
 
         List<pl.sda.javatarr6.demo.dto.ZadanieDto> zadania = zadanieService.getAll();
-
         model.addAttribute("zadania", zadania);
-
         return "main";
     }
 
-    @RequestMapping(value = "/main2", method = RequestMethod.GET)
+    @RequestMapping(value = "/listzadanie", method = RequestMethod.GET)
 
-    public String main2(Model model) {
+    public String listzadanie(Model model) {
 
         List<pl.sda.javatarr6.demo.dto.ZadanieDto> zadania = zadanieService.getAll();
-
         model.addAttribute("zadania", zadania);
-
-        return "main2";
+        return "listzadanie";
     }
 
     @RequestMapping(value = "/zadanieList", method = RequestMethod.GET)
     @ResponseBody
     public String zadanieList(Model model) {
 
-        List<pl.sda.javatarr6.demo.dto.ZadanieDto> zadania= zadanieService.getAll();
-
+        List<pl.sda.javatarr6.demo.dto.ZadanieDto> zadania = zadanieService.getAll();
         model.addAttribute("zadanieList", zadania);
-
-        //return "zadanieList";
         return model.toString();
     }
 
@@ -59,36 +59,25 @@ public class ZadanieController<ZadanieDto> {
     //@GetMapping("/hello")
     //@ResponseBody
     public String test() {
-
-
-        String cos = "eajfwrevoiuehr";
-        System.out.println("sout z controlera test " + cos);
-
-        //return "testz controllera "+cos;
         return "test";
     }
 
     @RequestMapping(value = "/addzadanie", method = RequestMethod.GET)
     public String createQuiz(Model model) {
-
         model.addAttribute("zadanie", new pl.sda.javatarr6.demo.dto.ZadanieDto());
-
         return "/addzadanie";
     }
 
     @RequestMapping(value = "/addzadanie", method = RequestMethod.POST)
     public String createZadanie(@ModelAttribute("zadanie") @Validated pl.sda.javatarr6.demo.dto.ZadanieDto zadanieDto, BindingResult bindingResult, Model model) {
-
         if (bindingResult.hasErrors()) {
             return "/addzadanie";
         }
-
         //  zadanieDto.setOpis();
         zadanieDto.setDataUtworzenia(new SimpleDateFormat(ZadaniaMapper.DATE_FORMAT).format(new Date()));
-        zadanieDto.setUkonczone(new Boolean(false) );
+        zadanieDto.setUkonczone(new Boolean(false));
         zadanieService.save(zadanieDto);
-
-        return "redirect:/main";
+        return "redirect:/listzadanie";
     }
 }
 
