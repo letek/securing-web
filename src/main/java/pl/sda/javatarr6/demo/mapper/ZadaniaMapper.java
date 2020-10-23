@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//import pl.sda.javatarr6.demo.entity.ZadanieEntity;
 
-//import java.util.List;
 
 public class ZadaniaMapper {
 

@@ -3,29 +3,73 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Aplikacja TODO</title>
+    <!-- Bootstrap core CSS -->
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"-->
+<!--          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">-->
 </head>
 <body>
-<a href="addzadanie">Dodaj Zadanie</a>
-<br><br>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Opis</th>
-        <th>Data utworzenia</th>
-        <th>Data zamknięcia</th>
-        <th>Wykonane</th>
-        <th>Akcja</th>
-    </tr>
-    <tr th:each="zadania : ${zadania}">
-        </td>
-        <td th:text="${zadania.id}"/>
-        <td th:text="${zadania.opis}"/>
-        <td th:text="${zadania.dataUtworzenia}"/>
-        <td th:text="${zadania.dataZamkniecia}"/>
-        <td th:text="${zadania.ukonczone}"></td>
-        <td><a th:href="@{/delzadanie/(id=${zadania.id})}" class="btn btn-danger">Zakończ</a></td>
-</table>
+<!-- Footer -->
+<header class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Aplikacja TODO</p>
+    </div>
+    <!-- /.container -->
+</header>
+
+<div class="container mt-2">
+    <!--    <a href="addzadanie">Dodaj Zadanie</a>-->
+    <form action="addzadanie">
+        <button class="btn btn-danger" type="button" onclick="location.href='/addzadanie';" value="Dodaj Zadanie">Dodaj
+            Zadanie
+        </button>
+    </form>
+    <br>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Opis</th>
+            <th>Data utworzenia</th>
+            <th>Data zamknięcia</th>
+            <th>Wykonane</th>
+            <th>Akcja</th>
+            <th>Akcja</th>
+
+        </tr>
+
+        <th>&nbsp</th>
+        <tr th:each="zadania : ${zadania}">
+            <td th:text="${zadania.id}"/>
+            <td th:text="${zadania.opis}"/>
+            <td th:text="${zadania.dataUtworzenia}"/>
+            <td th:text="${zadania.dataZamkniecia}"/>
+            <td th:text="${zadania.ukonczone}"></td>
+            <!--            <td><a th:href="@{/zmienopis/(id=${zadania.id})}" class="btn btn-danger">Zmień</a></td>-->
+            <td>
+            <span th:if="${zadania.ukonczone}">
+            </span>
+                <span th:if="${!zadania.ukonczone}">
+                <a th:href="@{/zmienopis/(id=${zadania.id})}" class="btn btn-danger">Zmień</a>
+                <a th:href="@{/delzadanie/(id=${zadania.id})}" class="btn btn-danger">Zakończ</a>
+            </span>
+            </td>
+
+
+
+
+    </table>
+</div>
+<br>
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; TARR Java 6</p>
+    </div>
+    <!-- /.container -->
+</footer>
 
 </body>
 </html>

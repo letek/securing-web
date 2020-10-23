@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -48,28 +47,38 @@ public class ZadanieService {
         return null;
     }
 
-    //to na develop znacznik
     public ZadanieEntity finishzadanieEntity(Long id) {
-        System.out.println("weszlo w finisz");
-
         if (id != null) {
 
-//            System.out.println("weszlo w id <> null");
-//            System.out.println("id = " + id.toString());
             ZadanieEntity entity = zadanieRepository.getById(id);
 
 //            if (entity != null) {
-//                System.out.println("weszlo w entity <> null");
-//                System.out.println(entity);
-                entity.setUkonczone(true);
-                entity.setDataZamkniecia(new Date());
-                zadanieRepository.save(entity);
-  //          }
+            entity.setUkonczone(true);
+            entity.setDataZamkniecia(new Date());
+            zadanieRepository.save(entity);
+            //          }
 
         } else System.out.println("Nie podano ID");
 
-        //danieEntity(save);
         return null;
     }
+
+    public ZadanieEntity zmienpiszadanieEntity(Long id, String opis) {
+
+        if (id != null) {
+            ZadanieEntity entity = zadanieRepository.getById(id);
+            if (!entity.isUkonczone()) {
+                entity.setOpis(opis);
+                zadanieRepository.save(entity);
+            }
+            else {
+
+                System.out.println("jjjjjjj");}
+
+        } else System.out.println("Nie podano ID");
+
+        return null;
+    }
+
 }
 
